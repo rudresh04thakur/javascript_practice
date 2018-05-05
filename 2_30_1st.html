@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>Hi this is demo of JavaScript</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
+    <script>
+        function getValue(event) {
+            event.preventDefault();
+            with (document) {
+                var elements = getElementsByClassName("validate")
+                // elements.forEach(function(element){
+                //     alert(element.value);
+                // });
+                for (var element in elements) {
+                    if (elements[element].value == "") {
+                        elements[element].style = ("border: 1px solid red");
+                    }
+                    else{
+                        elements[element].style = ("border: 1px solid #ccc");
+                    }
+                }
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <form class="form col-md-6 col-md-offset-3" onsubmit="return getValue(event)" style="padding: 50px; margin-top: 80px; border: 3px double silver">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="validate form-control" placeholder="Enter Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="name">Email</label>
+                    <input class="validate form-control" placeholder="Enter Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="name">Password</label>
+                    <input class="validate form-control" type="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="name">Re-Password</label>
+                    <input class="validate form-control" type="password" placeholder="Re-Enter Password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

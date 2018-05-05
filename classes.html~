@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			window.onload=function(){   //Javascript document onload event 
+				function ClassName()	{
+				//class and constructor			
+				}		
+				//prototypical add methods or members
+				ClassName.prototype.getInfo=function () {
+					this.name=prompt("Enter Your Name");
+					this.contact=prompt("Enter Your Contact Number");
+				}
+				ClassName.prototype.printInfo=function () {
+					with(document){				
+						getElementById('name').innerHTML=this.name;
+						getElementById('contact').innerHTML=this.contact;
+					}
+				}
+				//Object creation for class	
+				var c = new ClassName();  //Constructor call
+				c.getInfo();  //Member Method Call
+				c.printInfo(); //Member method Call
+			}
+		</script>
+	</head>
+	<body>
+		<div id="name"></div>
+		<div id="contact"></div>
+	</body>
+</html>

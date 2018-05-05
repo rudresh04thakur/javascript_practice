@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			//var x = function(){code}
+			//x();
+			//document.onclick=function(event){alert()}
+			var choice;			
+			window.onload=function () {
+				math={
+						'+':function (x,y) {return (parseInt(prompt("Enter 1st Number"))+parseInt(prompt("Enter 2nd Number")))},
+						'-':function (x,y) {return (parseInt(prompt("Enter 1st Number"))-parseInt(prompt("Enter 2nd Number")))},
+						'*':function (x,y) {return (parseInt(prompt("Enter 1st Number"))*parseInt(prompt("Enter 2nd Number")))},
+						'/':function (x,y) {return (parseInt(prompt("Enter 1st Number"))/parseInt(prompt("Enter 2nd Number")))},					
+					}
+				do{
+					choice = prompt("Enter your choice \n(+,-,*,/,0 for Exit)");
+					if (choice!='0') {
+						alert(math[choice]());	
+					}					
+				}while (choice!='0')
+			}		
+		</script>	
+	</head>
+	<body>
+	
+	</body>
+</html>

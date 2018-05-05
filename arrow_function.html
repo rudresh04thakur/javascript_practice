@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			var choice;			
+			window.onload= () => {
+				math={
+						'+':(x,y)=>{return (parseInt(prompt("Enter 1st Number"))+parseInt(prompt("Enter 2nd Number")))},
+						'-':(x,y)=>{return (parseInt(prompt("Enter 1st Number"))-parseInt(prompt("Enter 2nd Number")))},
+						'*':(x,y)=>{return (parseInt(prompt("Enter 1st Number"))*parseInt(prompt("Enter 2nd Number")))},
+						'/':(x,y)=>{return (parseInt(prompt("Enter 1st Number"))/parseInt(prompt("Enter 2nd Number")))},					
+					}
+				do{
+					choice = prompt("Enter your choice \n(+,-,*,/,0 for Exit)");
+					if (choice!='0') {
+						alert(math[choice]());	
+					}					
+				}while (choice!='0');
+			}	
+			
+		</script>	
+	</head>
+	<body>
+	
+	</body>
+</html>

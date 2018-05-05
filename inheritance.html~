@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			window.onload=function(){   //Javascript document onload event 
+				
+				function BaseClass()	{
+				//class and constructor			
+				}		
+				//prototypical add methods or members
+				BaseClass.prototype.getInfo=function () {
+					this.name=prompt("Enter Your Name");
+					this.contact=prompt("Enter Your Contact Number");
+				}
+				BaseClass.prototype.printInfo=function () {
+					with(document){				
+						getElementById('name').innerHTML=this.name;
+						getElementById('contact').innerHTML=this.contact;
+					}
+				}
+				
+				function DerivedClass()	{
+				//class and constructor			
+				}		
+
+				//inherit BaseClass in DerivedClass 
+				//Note :- It Must Be Immediate After Constructor of DerivedClass
+				DerivedClass.prototype = Object.create(BaseClass.prototype);				
+												
+				//prototypical add methods or members
+				DerivedClass.prototype.get=function () {
+					this.designation=prompt("Enter Your Designation");
+					this.salary=prompt("Enter Your Salary");
+				}
+				DerivedClass.prototype.print=function () {
+					with(document){				
+						getElementById('designation').innerHTML=this.designation;
+						getElementById('salary').innerHTML=this.salary;
+					}
+				}
+				
+				//Object creation for class	
+				var d = new DerivedClass();  //Constructor call
+				d.getInfo();  //Member Method Call of BaseClass
+				d.printInfo(); //Member Method Call of BaseClass
+				d.get(); //Member Method Call of DerivedClass
+				d.print(); //Member Method Call of DerivedClass
+			}
+			//Traversing
+			//Bubbling
+			//Scrapping
+			//ES5 & ES6
+		</script>
+	</head>
+	<body>
+		<div id="name"></div>
+		<div id="contact"></div>
+		<div id="designation"></div>
+		<div id="salary"></div>
+	</body>
+</html>
