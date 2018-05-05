@@ -5,6 +5,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
     <script>
+        var a=[];
         function getValue(event) {
             event.preventDefault();
             with (document) {
@@ -19,8 +20,14 @@
                     else{
                         elements[element].style = ("border: 1px solid #ccc");
                     }
+                    if(elements[element].getAttribute("type")=="password"){
+                       //alert(elements[element].value);
+                       a.push(elements[element].value);
+                    }
                 }
-                return false;
+                if(a[0]!=a[1]){
+                    alert("Both Passwod are not same" + a);
+                }
             }
         }
     </script>
