@@ -5,31 +5,52 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
     <script>
-        var a=[];
+        var a={};
         function getValue(event) {
             event.preventDefault();
-            with (document) {
-                var elements = getElementsByClassName("validate")
-                // elements.forEach(function(element){
-                //     alert(element.value);
-                // });
-                for (var element in elements) {
-                    if (elements[element].value == "") {
-                        elements[element].style = ("border: 1px solid red");
-                    }
-                    else{
-                        elements[element].style = ("border: 1px solid #ccc");
-                    }
-                    if(elements[element].getAttribute("type")=="password"){
-                       //alert(elements[element].value);
-                       a.push(elements[element].value);
-                    }
+            var elements = Array.prototype.slice.apply(document.getElementsByClassName("validate"));
+            // elements.forEach(function(element){
+            //     alert(element.value);
+            // });
+            elements.forEach((element,index) => {  /// arrow function or lambda Function (params)=>{code}
+                if(element.value==""){
+                    element.style= ("border: 1px solid red");
+                    return false;
                 }
-                if(a[0]!=a[1]){
-                    alert("Both Passwod are not same" + a);
+                else{
+                    element.style = ("border: 1px solid #ccc");
+                }
+                if(element.getAttribute("type")=="password"){
+                    a[index]=(element.value);
+                }
+            });
+            //alert(JSON.stringify(a));
+            var tempArr=[];
+            for(var k in a){
+                tempArr.push(a[k]);
+            }
+            //alert(tempArr);
+            if(tempArr[0]!=tempArr[1]){
+                for(var k in a){
+                    elements[(k*1)].style=("border: 1px solid red");
                 }
             }
-        }
+
+            var emails = Array.prototype.slice.apply(document.getElementsByClassName("validate-email"));
+            var email_value =[];
+            emails.forEach(function(element){
+                email_value.push(element.value);
+            });
+
+            ///Assingment 
+            email_value.forEach(function(element){
+                alert(element.indexOf('.'));
+                if(element.indexOf('@')<3 && element.indexOf('.')<(element.indexOf('@')+2)){
+                    alert("Error");
+                }
+            });
+            //alert(email_value);
+           }
     </script>
 </head>
 
@@ -39,19 +60,23 @@
             <form class="form col-md-6 col-md-offset-3" onsubmit="return getValue(event)" style="padding: 50px; margin-top: 80px; border: 3px double silver">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input class="validate form-control" placeholder="Enter Your Name">
+                    <input class="validate form-control" type="text" placeholder="Enter Your Name">
                 </div>
                 <div class="form-group">
                     <label for="name">Email</label>
-                    <input class="validate form-control" placeholder="Enter Your Email">
+                    <input class="form-control validate validate-email" type="text" placeholder="Enter Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="name">Contact Number</label>
+                    <input class="form-control validate" type="text" placeholder="Enter Your Mobile Number">
                 </div>
                 <div class="form-group">
                     <label for="name">Password</label>
-                    <input class="validate form-control" type="password" placeholder="Password">
+                    <input class="validate form-control" type="password" id="password" placeholder="Password">
                 </div>
                 <div class="form-group">
                     <label for="name">Re-Password</label>
-                    <input class="validate form-control" type="password" placeholder="Re-Enter Password">
+                    <input class="validate form-control" type="password" id="re-password" placeholder="Re-Enter Password">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
