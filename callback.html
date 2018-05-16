@@ -1,0 +1,17 @@
+<script>
+	window.onload=function () {
+		function abc (req,res,next) {
+			next("Addition is " + (req+res));
+			
+		}
+		abc(3,3,function (msg) { document.write(msg)})
+		
+		function one(next){
+			setInterval(function () {				
+				document.write("<br>one<br>");
+				next();	
+			},2000);
+		}
+		one(function(){document.write("second")});
+	}
+</script>

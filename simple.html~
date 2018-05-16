@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<script>
+			window.onload=function () {
+				//function math(){	
+					var c = prompt("Enter 1st,2nd,Your Choice (+,-,*,/)").split(',');					
+					/*var m = {"1":(a,b)=>{ return a+b},
+								"2":(a,b)=>{ return a-b},
+								"3":(a,b)=>{ return a*b},
+								"4":(a,b)=>{ return a/b}
+								}
+					*/
+					//arr = c.split(',');					
+					//x = m[arr[2]](parseInt(arr[0]),parseInt(arr[1]));
+					document.getElementById("dynamic").innerHTML= eval(c[0]+c[2]+c[1])  // x;			
+				//}
+				//math();
+								
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="dynamic">
+					
+		</div>
+	</body>
+</html>

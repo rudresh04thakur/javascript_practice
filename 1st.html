@@ -4,6 +4,7 @@
 		var j;  global scope
 		let i;	block level 
 	*/
+
 	/*
 		number
 		string
@@ -16,6 +17,7 @@
 		NaN
 		null
 	*/
+
 	/*
 		Math +,-,*,/,%
 		Assignment =
@@ -84,5 +86,22 @@
 		we call a inoveke functoin after defination invokelly
 
 	*/
+	window.onload=()=>{
+		x = (function(){
+			var i = 0;
+			return function(){
+				return i++;			
+			}
+		})();
+
+
+		alert(x()); 
+		alert(x());
+		alert(x());
+		alert(x());
+		alert(x());
+		
+	}
+
 	
 </script>
